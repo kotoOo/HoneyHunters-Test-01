@@ -1,0 +1,211 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+body {
+    background: #2d3136;
+}
+
+#top {
+    height: 100px;
+    background: #2d3136;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+sup.required {
+    font-size: 2em;
+    color: #be393b;
+    top: 0.1em;
+}
+
+#top .logo {
+    width: 238px;
+    height: 54px;
+
+    background: transparent url("../images/logo-01.png") no-repeat left center / contain;
+}
+
+section.add-comment {
+    background: #2d3136;
+    padding: 40px 10%;
+
+    color: #d7d7d7;
+    font-size: 1.2em;
+    position: relative;
+    overflow: hidden;
+
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+section.add-comment .contact-icon {
+    height: 200px;
+    width: 100%;
+    background: transparent url("../images/contact-icon-01.png") no-repeat center center / contain;
+    margin-bottom: 60px;
+}
+
+section.add-comment .box {
+    margin: 0 -40px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section.add-comment .form-control {
+    background: transparent;
+    color: #d7d7d7;
+
+    border: 1px solid #4c4f53;
+    outline: none;
+
+    height: 75px;
+    padding: 1rem 1.5rem;
+}
+
+section.add-comment textarea.form-control {
+    height: 202px;
+    resize: none;
+}
+
+section.add-comment .form-control:focus {
+    border-color: #743538;
+    box-shadow: none;
+}
+
+section.add-comment .col {
+    padding: 0 40px;
+}
+
+section.add-comment button.btn-primary {
+    float: right;
+    background: #be393b;
+    border: 0;
+
+    padding: 18px 35px;
+    font-size: 1.2em;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+section.add-comment button.btn-primary:hover {
+    background: #d3373a;
+    border: 0;
+}
+
+section.add-comment button.btn-primary:not(:disabled):not(.disabled):active {
+    background: #e72d30;
+    border: 0;
+}
+
+section.add-comment button.btn-primary:not(:disabled):not(.disabled):active,
+section.add-comment button.btn-primary:focus {
+    box-shadow: none;
+}
+
+section.comments {
+    padding: 80px 40px;
+}
+
+section.comments header.suspicious-caption {
+    text-align: center;
+    font-size: 2em;
+    color: #37414e;
+    margin: 0 0 60px 0;
+}
+
+section.comments div.box {
+    display: flex;
+    flex-flow: row wrap;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+section.comments div.comment {
+    height: 300px;
+
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+section.comments div.comment header.comment-header {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: #4b596c;
+    color: white;
+    font-size: 1.2em;
+}
+
+section.comments div.comment:nth-child(2n) header.comment-header {
+    background: #58ad52;
+}
+
+section.comments div.comment-body {
+    flex: 1 auto;
+    padding: 20px;
+    background: #e9eef3;
+    text-align: center;
+}
+
+section.comments div.comment:nth-child(2n) div.comment-body{
+    background: #deebde;
+}
+
+section.comments div.comment .email {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#page-footer {
+    height: 90px;
+    background: #2a2d33;
+    display: flex;
+    align-items: center;
+
+    padding: 0 10%;
+}
+
+#page-footer .logo {
+    width: 190px;
+    height: 54px;
+
+    background: transparent url("../images/logo-01.png") no-repeat left center / contain;
+}
+
+#page-footer .links {
+    flex: 1;
+    text-align: right;
+}
+
+#page-footer .link {
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#page-footer .link i {
+    width: 38px;
+    height: 38px;
+    display: inline-block;
+}
+
+#page-footer .link-vk i {
+    background: transparent url("../images/vk-icon-01.png") no-repeat center center / contain;
+}
+
+#page-footer .link-fb i {
+    background: transparent url("../images/fb-icon-01.png") no-repeat center center / contain;
+}
+
