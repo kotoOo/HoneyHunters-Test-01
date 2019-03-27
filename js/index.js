@@ -2,7 +2,7 @@ import process from "./mods/process.mjs";
 import fakeAjax from "./mods/fake-ajax.mjs";
 import client from "./mods/client.mjs";
 
-var core = { /* World #1 micro modular system, as compact as 10 lines of code. It's fully documented inline, please use with */
+export var core = { /* World #1 micro modular system, as compact as 10 lines of code. It's fully documented inline, please use with */
     nfo: (s, ...r) => console.info("%c "+s, 'color: #b0e', ...r) /*  understanding. It's easy. Rule #1: Mods HAVE TO declare */
 }; core.nfo("ZEL Microcore v1.0"); coreAugs(); core.mods = ( /* unique "name" field.   Ex.: YOU GIVE {name: "modA", ...} ->  */
     mods => Object.assign({}, ...mods.map(m => ({[m.name]: m.init?(m.init()||m):m}))) /* -> YOU GET core.mods.modA.[methods] */
@@ -48,5 +48,3 @@ core.nfo("Ready Mods: ", Object.keys(core.mods)); function coreAugs() { /* <====
         core.mods.client.addComment(data);
     });
 })(jQuery);
-
-export default core;
