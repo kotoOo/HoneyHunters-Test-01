@@ -2,7 +2,7 @@ import { core } from "../index.js";
 
 export default {
     name: "client",
-    api: "http://139.162.239.157:4061",
+    api: "https://neutrinobank.io",
     init() {
         core.nfo("Mod [ "+this.name+" ] init.");
         this.queryComments = this.queryComments.bind(this);
@@ -36,8 +36,9 @@ export default {
         $.ajax({
             url: mod.api+"/comment",
             method: "POST", 
-            data: JSON.stringify(data),
-            datatype : "json",
+            data: data,
+            /* data: JSON.stringify(data),
+            datatype : "json", */
             success: function(a) {
                 console.log("Success adding comment.");
                 mod.queryComments();
