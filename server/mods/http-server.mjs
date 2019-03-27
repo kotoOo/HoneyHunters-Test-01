@@ -75,6 +75,11 @@ export default {
             });
         });
 
+        a.name = core.escapeHTML(a.name);
+        a.email = core.escapeHTML(a.email);
+        a.msg = core.escapeHTML(a.msg);
+        a.dtCreated = core.time();
+
         const id = await core.query("INSERT INTO `comments` SET ?", a).then(r => r.insertId);
 
         return {id: id};

@@ -2,7 +2,7 @@ import { core } from "../index.js";
 
 export default {
     name: "client",
-    api: "http://127.0.0.1:4061",
+    api: "http://139.162.239.157:4061",
     init() {
         core.nfo("Mod [ "+this.name+" ] init.");
         this.queryComments = this.queryComments.bind(this);
