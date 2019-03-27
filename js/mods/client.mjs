@@ -2,6 +2,7 @@ import { core } from "../index.js";
 
 export default {
     name: "client",
+    api: "http://127.0.0.1:4061",
     init() {
         core.nfo("Mod [ "+this.name+" ] init.");
         this.queryComments = this.queryComments.bind(this);
@@ -19,8 +20,8 @@ export default {
     ),
     queryComments() {
         const mod = this;
-        $.fakeAjax({
-            url: "/comments",
+        $.ajax({
+            url: mod.api+"/comments",
             success: function(data) {
                 console.log("Success query comments.");
                 mod.renderComments(data.comments);
@@ -30,17 +31,48 @@ export default {
             }
         });
     },
-    addComment: data => {
-        $.fakeAjax({
-            url: "/comment",
+    addComment(data) {
+        const mod = this;
+        $.ajax({
+            url: mod.api+"/comment",
             method: "POST", 
-            data: data,
+            data: JSON.stringify(data),
+            datatype : "json",
             success: function(a) {
                 console.log("Success adding comment.");
+                mod.queryComments();
             },
             error: function() {
                 console.log("Failed adding comment.");
             }
         });
+    },
+    _validateEmail: email => {
+	    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	    return re.test(String(email).toLowerCase());
+    },
+    shakeField: bind => {
+        const scope = $('section.add-comment');
+        const el = $('input[v-bind="'+bind+'"],textarea[v-bind="'+bind+'"],select[v-bind="'+bind+'"]', scope);
+        el.focus().addClass("apply-shake");
+        setTimeout(function() {el.removeClass("apply-shake")}, 820);
+    },
+    validate(data) {
+        data.name = data.name.trim();
+        if (!data.name) {
+            this.shakeField("name");
+            throw "Не указано имя.";
+        }
+
+        data.email = data.email.trim();
+        if (!this._validateEmail(data.email)) {
+            this.shakeField("email");
+            throw "Недействительный E-Mail."
+        }
+        
+        if (!data.msg.trim()) {
+            this.shakeField("msg");
+            throw "Пустое сообщение.";
+        }
     }
 };

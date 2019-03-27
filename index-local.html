@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="utf-8" />
+    	<title>Honey Hunters - Mission I</title>
+        <meta name="viewport" content="width=device-width, maximum-scale=1" />
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=cyrillic" rel="stylesheet">
+        <link rel="icon" href="./images/favicon.png" type="image/png" />
+        <link rel="stylesheet" href="./css/index.css" type="text/css" />
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+    </head>
+    <body>
+        <nav id="top">
+            <div class="logo"></div>
+        </nav>
+        <section class="add-comment">
+            <div class="contact-icon"></div>
+            <form autocomplete="off">
+                <div class="box">
+                    <div class="col col-12 col-md-6">
+                        <div class="form-group">
+                            <label for="name">Имя <sup class="required">*</sup></label>
+                            <input type="text" class="form-control" id="name" required="true" v-bind="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail <sup class="required">*</sup></label>
+                            <input type="text" class="form-control" id="email" required="true" v-bind="email">
+                        </div>
+                    </div>
+                    <div class="col col-12 col-md-6">
+                        <div class="form-group">
+                            <label for="msg">Комментарий <sup class="required">*</sup></label>
+                            <textarea class="form-control" id="msg" required="true" v-bind="msg"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Записать</button>
+            </form>
+        </section>
+        <section class="comments">
+            <header class="suspicious-caption">Выводим комментарии</header>
+            <div class="box container">
+                
+            </div>
+        </section>
+        <footer id="page-footer">
+            <div class="logo"></div>
+            <div class="links">
+                <a href="https://vk.com/obslyzhivaniesaitov" target="_blank"><div class="link link-vk"><i></i></div></a>
+                <a href="https://www.facebook.com/honeyhuntersmanagement/" target="_blank"><div class="link link-fb"><i></i></div></a>
+            </div>
+        </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="./js/index.js" type="module"></script>
+    </body>
+</html>
