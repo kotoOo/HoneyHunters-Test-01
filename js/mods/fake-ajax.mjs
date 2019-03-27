@@ -1,4 +1,4 @@
-import { core } from "/js/index.js";
+import { core } from "../index.js";
 
 export default {
     name: "fakeAjax",
