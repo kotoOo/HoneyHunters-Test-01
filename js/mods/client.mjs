@@ -41,6 +41,7 @@ export default {
             datatype : "json", */
             success: function(a) {
                 console.log("Success adding comment.");
+                mod.clearForm();
                 mod.queryComments();
             },
             error: function() {
@@ -57,6 +58,16 @@ export default {
         const el = $('input[v-bind="'+bind+'"],textarea[v-bind="'+bind+'"],select[v-bind="'+bind+'"]', scope);
         el.focus().addClass("apply-shake");
         setTimeout(function() {el.removeClass("apply-shake")}, 820);
+    },
+    clearField(bind) {
+        const scope = $('section.add-comment');
+        const el = $('input[v-bind="'+bind+'"],textarea[v-bind="'+bind+'"],select[v-bind="'+bind+'"]', scope);
+        el.val("");
+    },
+    clearForm() {
+        this.clearField("name");
+        this.clearField("email");
+        this.clearField("msg");
     },
     validate(data) {
         data.name = data.name.trim();
